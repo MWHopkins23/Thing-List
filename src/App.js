@@ -21,6 +21,7 @@ class App extends Component {
       <div className="App">
           <Header />
           <ThingList things = {this.state.things} addThing = {this.addThing} />
+          <button className="add-thing">Add Thing</button>
       </div>
     );
   }
