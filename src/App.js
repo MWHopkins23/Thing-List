@@ -2,26 +2,39 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
+import AddThingButton from './AddThingButton'
 
 class App extends Component {
   state = {
     things: {
-      'thing-1': {id: 'thing-1', name: 'Milk'},
-      'thing-2': {id: 'thing-2', name: 'Bread'},
-      'thing-3': {id: 'thing-3', name: 'Lettuce'},
+      'thing-1': { id: 'thing-1', name: 'Milk' },
+      'thing-2': { id: 'thing-2', name: 'Bread' },
+      'thing-3': { id: 'thing-3', name: 'Bibb lettuce' },
     }
   }
 
-  addThing() {
+// breaking up 'addThing' to a separate function that creates blank inputs
+  thing() {
+    return {
+       id: `thing-${Date.now()}`,
+      name: '',
+    }
+  }
 
+  addThing = () => {
+    const things = {...this.state.things}
+    const thing = this.thing
+    things[thing.id] = thing
+    this.setState({ things })
   }
 
   render() {
     return (
       <div className="App">
-          <Header />
-          <ThingList things = {this.state.things} addThing = {this.addThing} />
-          <button className="add-thing">Add Thing</button>
+        <Header />
+        {/*pass as a prop*/}
+        <AddThingButton addThing={this.addThing} />
+        <ThingList things={this.state.things} />
       </div>
     );
   }

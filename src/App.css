@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Chonburi|BioRhyme');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
+
 .App {
   text-align: center;
 }
@@ -23,6 +26,33 @@
   to { transform: rotate(360deg); }
 }
 
+.actions {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  margin: -10px 0;
+}
+
+.thing:hover .actions {
+  opacity: 1;
+}
+
+.actions button {
+  border: 0;
+  background: transparent;
+  color: #999;
+  font-size: 1.5rem;
+}
+
+.actions button:hover {
+  color: black;
+}
+
+.actions button.remove:hover {
+  color: #AD343E;
+}
+
 button.add-thing,
 button.github {
   background-color: #F5B700;
@@ -40,4 +70,19 @@ button.github {
   font-weight: 200;
   -webkit-box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
           box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+}
+
+button.logout {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  display: block;
+  margin: 0 auto 1rem;
+  font-family: 'helvetica neue', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  background: #00b4ff;
 }
