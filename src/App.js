@@ -34,6 +34,12 @@ class App extends Component {
     this.setState({ things })
   }
 
+  removeThing = (thing) => {
+    const things = {...this.state.things}
+    delete things[thing.id]
+    this.setState({ things })
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,6 +49,7 @@ class App extends Component {
         <ThingList 
           things={this.state.things}
           saveThing={this.saveThing}
+          removeThing={this.removeThing}
          />
       </div>
     );
