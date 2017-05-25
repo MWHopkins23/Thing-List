@@ -5,6 +5,8 @@ import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
 import base from './base'
+import SignIn from './SingIn'
+import SignOut from './SignOut'
 
 class App extends Component {
   componentWillMount() {
