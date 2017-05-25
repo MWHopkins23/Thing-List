@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
@@ -7,14 +8,14 @@ import base from './base'
 
 class App extends Component {
   componentWillMount() {
-    base.syncState(
-      'things', 
+    this.ref = base.syncState(
+      'things',
       {
         context: this,
         state: 'things'
       }
-  )
-}
+    )
+  }
 
   state = {
     things: {}
