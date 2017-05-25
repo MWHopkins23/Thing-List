@@ -11,9 +11,16 @@ class Thing extends Component {
     }
   }
 
-  updateName = (ev) => {
+  handleChange = (ev) => {
     const { thing, saveThing } = this.props
-    thing.name = ev.target.value
+    const field = ev.currentTarget.getAttribute('name')
+    thing[field] = ev.target.value
+    saveThing(thing)
+  }
+
+  toggleCompletion = (ev) => {
+    const { thing, saveThing } = this.props
+    thing.completed = ev.target.checked
     saveThing(thing)
   }
 
@@ -29,14 +36,25 @@ class Thing extends Component {
 
     return (
       <li className="Thing">
-        <input type="checkbox" value="on" />
+        <input
+          type="checkbox"
+          defaultChecked={thing.completed}
+          onChange={this.toggleCompletion}
+        />
         <div className="details">
           <ContentEditable
             className="name"
+            name="name"
             html={thing.name}
-            onChange={this.updateName}
+            onChange={this.handleChange}
             onKeyPress={this.blurOnEnter}
             ref={input => this.nameInput = input}
+          />
+          <input
+            type="date"
+            name="dueOn"
+            defaultValue={thing.dueOn}
+            onChange={this.handleChange}
           />
           <Actions thing={thing} removeThing={removeThing} />
         </div>

@@ -43,15 +43,3 @@ input[type="checkbox"] {
   -ms-flex: 1 1 0%;
       flex: 1 1 0%;
 }
-
-.actions {
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 0;
-  margin: -10px 0;
-}
-
-.Thing:hover .actions {
-  opacity: 1;
-}
