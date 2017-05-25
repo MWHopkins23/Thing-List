@@ -60,6 +60,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <SignIn />
         <AddThingButton addThing={this.addThing} />
         <ThingList
           things={this.state.things}
