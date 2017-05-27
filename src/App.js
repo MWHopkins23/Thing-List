@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
-import AddThingButton from './AddThingButton'
+// import AddThingButton from './AddThingButton'
 import SignIn from './SignIn'
-import SignOut from './SignOut'
+// import SignOut from './SignOut'
 import base, { auth } from './base'
+import Main from './Main'
 
 class App extends Component {
   state = {
@@ -83,8 +84,7 @@ class App extends Component {
 
     return (
       <div>
-        <SignOut signOut={this.signOut} />
-        <AddThingButton addThing={this.addThing} />
+        <Main AddThingButton={this.addThing} signOut={this.signOut}  />
         <ThingList
           things={this.state.things}
           {...actions}
